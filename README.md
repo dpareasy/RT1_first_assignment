@@ -28,7 +28,7 @@ $ python2 run.py assignment.py
 
 When the simulation is launched, the robot is generated in a pre-built environment where it can distinguish golden tokens from silver.
 Once generated, it immediately begins its drive counterclockwise by constantly detecting the distances from each of the two types of tokens. If the distance from  golden tokens drops below a certain threshold it turns, so as to avoid collisions, otherwise it moves forward. When it detects a silver token, the robot must point at it and, once close, grabs it and releases it behind itself, turning in the direction of the farther wall. 
-To permit the robot this behaviour, i set some angular and distances thrashold. Their values had been established in a sperimental way.
+In order to obtain the final robot behaviour, some thresholds have been used. Their values have been established experimentally in such a way as to give the robot the most optimal behavior possible.
 
 
 ### Equipment ###
@@ -243,11 +243,17 @@ while 1
 						turn right
 ```
 
-## Possible improvements ##
+## Limitations and possible improvements ##
+
+Limitations:
+* Sometimes may happen that the robot doesn't grab the token at the first attempt, but it acts as it did. This problem may be due to a limitation of the simulator.
+* It may happen that the robot calculates the same distance from the left and right sides. In this scenario the robot stops his race because he does not know where to turn. In this case the problem was avoided by setting a very low threshold distance from the golden tokens.
+ 
 
 Possible improvements: 
-* A control, in grab_silver_token function, that allows the robot to ignore silver tokens if there are golden tokens between it and the silver. Doing this allows to avoid reducing the viewing distance range. This decrement must be done because otherwise the robot will move in the direction of silver tokens despite the presence of the wall between it and its target. 
-* A function that controls golden tokens on both sides and turns the robot as soon as it does not detect tokens on one side. That way, the robot does not need to get close to the gold tokens, to know that it has to turn.
+* A control, in `grab_silver_token` function, that allows the robot to ignore silver tokens if there are golden tokens between it and the silver. Doing this allows to avoid reducing the viewing distance range. This decrement must be done because otherwise the robot will move in the direction of silver tokens despite the presence of the wall between it and its objective. This improvement probably solve the problem of the second limitation, because in this way, the robot decides to turn thanks to the presence of silver token nearby. 
+* A function that controls golden tokens on both sides and turns the robot as soon as it does not detect tokens on one side. That way, the robot does not need to get close to the golden tokens to know that it has to turn.
+ 
 
 
  
