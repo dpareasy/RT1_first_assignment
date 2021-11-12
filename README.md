@@ -96,7 +96,7 @@ for m in markers:
 
 ## About software architecture ##
 
-To implement the code for this project 8 different functions has been implemented. In the following lines there is an explanation of each one.
+To implement the code for this project 8 different functions had been implemented. In the following lines there is an explanation of each one.
 
 ### The drive function ###
 
