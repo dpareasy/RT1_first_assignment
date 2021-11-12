@@ -245,4 +245,9 @@ while 1
 
 ## Possible improvements ##
 
-A possible improvement could be a control, in grab_silver_token function, that allows the robot to ignore silver tokens if there are golden tokens between it and the silver. Doing this allows to avoid reducing the viewing distance range. This decrement must be done because otherwise the robot will move in the direction of silver tokens despite the presence of the wall between it and its target.  
+Possible improvements: 
+* A control, in grab_silver_token function, that allows the robot to ignore silver tokens if there are golden tokens between it and the silver. Doing this allows to avoid reducing the viewing distance range. This decrement must be done because otherwise the robot will move in the direction of silver tokens despite the presence of the wall between it and its target. 
+* A function that controls golden tokens on both sides and turns the robot as soon as it does not detect tokens on one side. That way, the robot does not need to get close to the gold tokens, to know that it has to turn.
+
+
+ 
