@@ -2,7 +2,7 @@
 ================================
 Parisi Davide Leo 4329668 
 
-This assignment requires the development of a sofware architecture, in python language, for constraintly drive a robot around a particular enviroment. To help the it in the navigation, the architecture relies on the `R.see` method. 
+This assignment requires the development of a sofware architecture, in python language, for constraintly drive a robot around a particular enviroment. To help it in the navigation, the architecture relies on the `R.see` method. 
 
 The architecture should be able to:
 
@@ -27,12 +27,8 @@ $ python2 run.py assignment.py
 ## Robot behaviour ##
 
 When the simulation is launched, the robot is generated in a pre-built environment where it can distinguish golden tokens from silver.
-Once generated, it immediately begins its drive counterclockwise by constantly detecting the distances from each of the two types of tokens. If the distance from the golden tokens drops below a certain threshold it turns, so as to avoid collisions, otherwise it moves forward. When it detects a silver token, the robot must point at it and, once close, grabs it and releases it behind itself, turning in the direction of the farther wall. 
-
-
-https://user-images.githubusercontent.com/92155300/141161108-8a0ffc14-e9c9-4793-a906-5d992e1b456e.mp4
-
-
+Once generated, it immediately begins its drive counterclockwise by constantly detecting the distances from each of the two types of tokens. If the distance from  golden tokens drops below a certain threshold it turns, so as to avoid collisions, otherwise it moves forward. When it detects a silver token, the robot must point at it and, once close, grabs it and releases it behind itself, turning in the direction of the farther wall. 
+To permit the robot this behaviour, i set some angular and distances thrashold. Their values had been established in a sperimental way.
 
 
 ### Equipment ###
@@ -100,7 +96,7 @@ for m in markers:
 
 ## About software architecture ##
 
-To implement the code for this project I decided to use 8 different functions. In the following lines there is an explanation of each one.
+To implement the code for this project 8 different functions has been implemented. In the following lines there is an explanation of each one.
 
 ### The drive function ###
 
@@ -130,7 +126,7 @@ Equipment:
 This function enables the robot to recognise golden tokens. In this function I decided to set an angular threshold that allows a rather wide frontal view for golden tokens. 
 
 Return:
-* The frontal distance from golden token
+* The frontal distance from golden tokens
 * The alignment with golden tokens
 
 Equipment:
@@ -179,10 +175,6 @@ Parameters:
 * The right side distance from golden tokens
 
 
-![avoid_golden](https://user-images.githubusercontent.com/92155300/141161232-7f7ab7e3-3546-4f9a-953d-c91d082092be.gif)
-
-
-
 ### The grab_silver_token function ###
 
 This function allows the simulated robot to grab silver tokens. This action is allowed only when the distance from the silver tokens is less than a preset value and if the robot is aligned with them. After grabbing, it computes the left and right distances from the wall and decides to turn in the direction of the farthest. Then, after having released the token, it spins again following the same logic used before. 
@@ -197,9 +189,6 @@ used function:
 * The `find_silver_token` function
 * The `right_side_distance` function
 * The `left_side_distance` function
-
-![grab_function](https://user-images.githubusercontent.com/92155300/141161262-f0dda653-4ea0-434d-b751-2472a41eba88.gif)
-
 
 
 ## Pseudocode ##
